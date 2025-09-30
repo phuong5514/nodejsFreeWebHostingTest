@@ -1,45 +1,14 @@
-// let http = require('http');
-// let fs = require('fs');
-// let path = require('path');
-// let url = require('url');
+const { createServer } = require('node:http');
 
-// const PORT = process.env.PORT || 8080;
+const hostname = '127.0.0.1';
+const port = 3000;
 
-// http.createServer(function (req, res) {
-//     // Parse URL to get pathname without query parameters
-//     const parsedUrl = url.parse(req.url);
-//     const pathname = parsedUrl.pathname;
-    
-//     if (pathname === '/' || pathname === '/index.html') {
-//         const filePath = path.join(__dirname, 'frontend/index.html');
-        
-//         fs.readFile(filePath, function(error, content) {
-//             if (error) {
-//                 res.writeHead(500, {'Content-Type': 'text/html'});
-//                 res.end(`Error: ${error.code}`);
-//             } else {
-//                 res.writeHead(200, {'Content-Type': 'text/html'});
-//                 res.end(content);
-//             }
-//         });
-//     } else {
-//         res.writeHead(404, {'Content-Type': 'text/html'});
-//         res.end('404 Not Found');
-//     }
-// }).listen(PORT);
-
-const express = require("express");
-const app = express();
-
-const PORT = process.env.PORT || 3000;
-
-app.get("/", (req, res) => {
-  res.send("Hello from Express on " + PORT);
+const server = createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World');
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
 });
-
-
-console.log(`Server running on port ${PORT}`);
