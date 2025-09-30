@@ -1,7 +1,9 @@
 const { createServer } = require('node:http');
 
-const hostname = '127.0.0.1';
-const port = 3000;
+// Use environment PORT for hosting platforms, fallback to 3000 for local development
+const port = process.env.PORT || 3000;
+// Use 0.0.0.0 instead of 127.0.0.1 to allow external connections
+const hostname = '0.0.0.0';
 
 const server = createServer((req, res) => {
   res.statusCode = 200;
@@ -10,5 +12,5 @@ const server = createServer((req, res) => {
 });
 
 server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+  console.log(`Server running on port ${port}`);
 });

@@ -1,0 +1,16 @@
+{
+  "name": "nodejs-web-app",
+  "version": "1.0.0",
+  "description": "Simple Node.js web application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "keywords": ["nodejs", "web", "server"],
+  "author": "",
+  "license": "MIT"
+}
